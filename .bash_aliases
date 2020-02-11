@@ -18,3 +18,6 @@ function Enter () { docker exec -it $(docker ps | grep "$1" | awk '{print $1}') 
 #alias Dio='docker run -d --rm -v $HOME/Dionaea/log_json.yaml:/opt/dionaea/etc/dionaea/ihandlers/log_json.yaml -v $HOME/log:/opt/diolog -p 3306:3306 -p 21:21 dionaea'
 
 alias Deset='docker stop $(docker ps -q); docker container prune -f'
+
+
+alias PUSH='git add . && git commit -m "drive" && git push origin master'

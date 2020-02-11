@@ -15,3 +15,17 @@ services:
     ports:
     - "21:21"
     - "3306:3306"
+  cowrie:
+    image: cowrie
+    hostname: cowrie
+
+    # Allocate a tty to avoid the container from exiting
+    tty: true
+
+    # Mount the log directory so that we can access the log files directly on the host machine
+    volumes:
+    - /home/money/log:/cowrie/cowrie-git/var/log/cowrie
+
+    # Note that the port mappings need to be strings
+    ports:
+    - "22:2222"
