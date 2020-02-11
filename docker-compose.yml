@@ -1,0 +1,17 @@
+version: '3'
+services:
+  dionaea:
+    image: dionaea
+    hostname: dionaea 
+
+    # Allocate a tty to avoid the container from exiting
+    tty: true
+
+    # Mount the log directory so that we can access the log files directly on the host machine
+    volumes:
+    - /home/money/log:/opt/diolog
+
+    # Note that the port mappings need to be strings
+    ports:
+    - "21:21"
+    - "3306:3306"
