@@ -2,25 +2,23 @@ version: '3'
 services:
 
 ### Dionaea ###
-#  dionaea:
-#    image: dionaea
-#    hostname: dionaea 
-#
-#    # Allocate a tty to avoid the container from exiting
-#    tty: true
-#
-#    # Mount the log directory so that we can access the log files directly on the host machine
-#    volumes:
-#    - /home/money/sql:/opt/sqldio
-#    - /home/money/log:/opt/logdio
-#    - /home/money/binaries:/opt/dionaea/var/dionaea/binaries
-#
-#    # Note that the port mappings need to be strings
-#    ports:
-#    - "21:21"
-#    - "3306:3306"
-#    - "445:445"
-#    - "80:80"
+  dionaea:
+    image: dionaea
+    hostname: dionaea 
+
+    # Allocate a tty to avoid the container from exiting
+    tty: true
+
+    # Mount the log directory so that we can access the log files directly on the host machine
+    volumes:
+    - /home/money/log:/opt/logdio
+    - /home/money/binaries:/opt/dionaea/var/dionaea/binaries
+
+    # Note that the port mappings need to be strings
+    ports:
+    - "21:21"
+    - "3306:3306"
+    - "445:445"
 
 ### Cowrie ###
   cowrie:
