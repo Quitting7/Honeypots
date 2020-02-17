@@ -1,0 +1,4 @@
+- name: log_sqlite
+  config:
+    #file: "@DIONAEA_STATEDIR@/dionaea.sqlite"
+    file: "/opt/sqldio/dionaea.sqlite"
