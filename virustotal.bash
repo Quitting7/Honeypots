@@ -32,7 +32,7 @@ elif [ "$1" == 'recv' ]; then
 			./virustotal.py $binpath/$bin $API_KEY fetch | tr "'" '"' >> $logpath/$logfile 
 			
 			# Retire the binaries that have been fetched
-			#mv $binpath/$bin $retirepath 
+			mv $binpath/$bin $retirepath 
 		fi
 	done
 else

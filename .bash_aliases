@@ -4,6 +4,7 @@ alias Deset='docker stop $(docker ps -q); docker container prune -f'
 
 alias est="sudo netstat -tunap | grep ESTABLISHED"
 alias listen="sudo netstat -tunap | grep LISTEN"
+alias Virtual='source venv/bin/activate'
 
 # Start the VPN connection
 alias VPN='cd /etc/openvpn/client/ ; sudo openvpn --config client.conf &> /dev/null &'
