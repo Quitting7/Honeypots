@@ -9,7 +9,22 @@ alias Virtual='source venv/bin/activate'
 # Start the VPN connection
 alias VPN='cd /etc/openvpn/client/ ; sudo openvpn --config client.conf &> /dev/null &'
 
+alias CuckWeb='sudo service uwsgi restart && sudo service nginx restart'
+alias changes='sudo ausearch -k SSH_DIR | aureport -f -i ; sudo ausearch -k Binaries | aureport -f -i'
+alias Grab='sudo chown -R money ~/binaries ; sudo chgrp -R money ~/binaries'
 alias Logs='tail -f ~/log/dionaea.json'
+
+function HTTPserve ()
+{   
+	if [ -z "$1" ]; then return 1; fi
+
+	if [ $1 = 'up' ]; then
+		sudo systemctl restart apache2
+	elif [ $1 = 'down'  ]; then
+		sudo systemctl stop apache2
+	fi
+
+}
 
 function Enter () { docker exec -it $(docker ps | grep "$1" | awk '{print $1}') bash; }
 

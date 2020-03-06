@@ -3,7 +3,7 @@ FROM cowrie/cowrie
 COPY cowrie.cfg /cowrie/cowrie-git/etc/cowrie.cfg
 
 USER root
-RUN apt-get update && apt-get install net-tools -y
+RUN apt-get update && apt-get install net-tools vim -y
 USER cowrie
 
 EXPOSE 2222

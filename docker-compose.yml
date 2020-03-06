@@ -31,6 +31,7 @@ services:
     # Mount the log directory so that we can access the log files directly on the host machine
     volumes:
     - /home/money/log:/cowrie/cowrie-git/var/log/cowrie
+    - /home/money/cowrie-downloads:/cowrie/cowrie-git/var/lib/cowrie/downloads
 
     # Note that the port mappings need to be strings
     ports:

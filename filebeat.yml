@@ -24,8 +24,7 @@ filebeat.inputs:
 
   # Paths that should be crawled and fetched. Glob based paths.
   paths:
-    #- /var/log/*.log
-    - /home/money/log/*
+    - /home/money/log/dionaea*
 
 
   ### IMPORTANT ###
@@ -34,11 +33,40 @@ filebeat.inputs:
   json.keys_under_root: true
   json.add_error_key: true  
 
-  #processors:
-  #  - add_fields:
-  #      target: withjson
-  #      fields:
-  #        name: withjson
+  processors:
+    - add_fields:
+        target: ""
+        fields:
+          sensor: dionaea
+
+- type: log
+
+  enabled: true
+  paths:
+    - /home/money/log/cow*
+
+  json.keys_under_root: true
+  json.add_error_key: true  
+
+  processors:
+    - add_fields:
+        target: ""
+        fields:
+          sensor: cowrie
+
+- type: log
+  enabled: true
+  paths:
+    - /home/money/log/elastic*
+
+  json.keys_under_root: true
+  json.add_error_key: true  
+
+  processors:
+    - add_fields:
+        target: ""
+        fields:
+          sensor: elastichoney
 
 #--------------- DIONAEA ----------------#
 # Underscors on dst_port NO
@@ -71,7 +99,6 @@ filebeat.inputs:
 #    - decode_json_fields:
 #       fields: []
 
-          
 #-------------------------------------------------#
 
   # Exclude lines. A list of regular expressions to match. It drops the lines that are
